@@ -1,0 +1,29 @@
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  labels: 
+    app: postgres
+  name: postgresdeployment
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: postgres
+  template: 
+    metadata: 
+      labels: 
+        app: postgres
+    spec: 
+      containers: 
+        - 
+          image: "postgres:10"
+          name: postgres10
+          volumeMounts:
+              -  name: postgredb
+                 mountPath: /var/lib/postgresql/db-data
+      volumes:
+        - name: postgredb
+          persistentVolumeClaim:
+            claimName: postgres-pv-claim
+
