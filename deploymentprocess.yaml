@@ -18,3 +18,4 @@
                      - kubectl apply -f postures-deployment.yaml
                      - kubectl apply -f postures-service.yaml
                      - kubectl apply -f postures-storage.yaml
+                     - apply
